@@ -1,36 +1,22 @@
-mode = input("Decrypt or Encrypt? ")
-message = list(input("What would you like to encrypt? "))
-shift = int(input("What is your Key? "))
-new_message = []
+mode_choice = input("Decrypt or Encrypt? ").lower
 
-if mode == "decrypt":
-    for letter in message:
-        if letter == "a": new_message.append(1)
-        if letter == "b": new_message.append(2)
-        if letter == "c": new_message.append(3)
-        if letter == "d": new_message.append(4)
-        if letter == "e": new_message.append(5)
-        if letter == "f": new_message.append(6)
-        if letter == "g": new_message.append(7)
-        if letter == "h": new_message.append(8)
-        if letter == "i": new_message.append(9)
-        if letter == "j": new_message.append(10)
-        if letter == "k": new_message.append(11)
-        if letter == "l": new_message.append(12)
-        if letter == "m": new_message.append(13)
-        if letter == "n": new_message.append(14)
-        if letter == "o": new_message.append(15)
-        if letter == "p": new_message.append(16)
-        if letter == "q": new_message.append(17)
-        if letter == "r": new_message.append(18)
-        if letter == "s": new_message.append(19)
-        if letter == "t": new_message.append(20)
-        if letter == "u": new_message.append(21)
-        if letter == "v": new_message.append(22)
-        if letter == "w": new_message.append(23)
-        if letter == "x": new_message.append(24)
-        if letter == "y": new_message.append(25)
-        if letter == "z": new_message.append(26)
+if list(mode_choice)[0] == "d":
+    mode = ("decrypt")
+elif list(mode_choice)[0] == "e":
+    mode = ("encrypt")
+
+message = list(input(f"What would you like to {mode}? ").lower)
+shift = int(input("What is your Key? "))
+
+ALPHABET = {"a":1, "b":2, "c":3, "d":4, "e":5, "f":6, "g":7, "h":8, "i":9, "j":10, "k":11, "l":12, "m":13, "n":14, "o":15, "p":16, "q":17, "r":18, "s":19, "t":20, "u":21, "v":22, "w":23, "x":24, "y":25, "z":26}
+
+
+def Encrypt():
+    message_values = []
+    for letter in range(len(message)):
+        message_values.append(ALPHABET.values(message[letter]))
+    
+    print(message_values)
 
 def mixer(new_message,shift):
     for letter in range(0,len(new_message)):
@@ -38,35 +24,10 @@ def mixer(new_message,shift):
     return message
 
 
-if mode == "encrypt":
-        for letter in message:
-        if letter == "a": new_message.append(1)
-        if letter == "b": new_message.append(2)
-        if letter == "c": new_message.append(3)
-        if letter == "d": new_message.append(4)
-        if letter == "e": new_message.append(5)
-        if letter == "f": new_message.append(6)
-        if letter == "g": new_message.append(7)
-        if letter == "h": new_message.append(8)
-        if letter == "i": new_message.append(9)
-        if letter == "j": new_message.append(10)
-        if letter == "k": new_message.append(11)
-        if letter == "l": new_message.append(12)
-        if letter == "m": new_message.append(13)
-        if letter == "n": new_message.append(14)
-        if letter == "o": new_message.append(15)
-        if letter == "p": new_message.append(16)
-        if letter == "q": new_message.append(17)
-        if letter == "r": new_message.append(18)
-        if letter == "s": new_message.append(19)
-        if letter == "t": new_message.append(20)
-        if letter == "u": new_message.append(21)
-        if letter == "v": new_message.append(22)
-        if letter == "w": new_message.append(23)
-        if letter == "x": new_message.append(24)
-        if letter == "y": new_message.append(25)
-        if letter == "z": new_message.append(26)
+#if mode == "encrypt":
+#        for letter in message:
+
 #    message == new_message
 #    new_message == []
-
-    print(mixer(new_message,shift))
+#
+#    print(mixer(new_message,shift))
